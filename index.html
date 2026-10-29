@@ -6,7 +6,7 @@
  <style>
  body {
  font-family: Arial, sans-serif;
- background-color: #1a1a2e; /* Жуткий темно-синий/фиолетовый фон */
+ background-color: #1a1a2e;
  color: white;
  margin: 0;
  padding: 0;
@@ -60,7 +60,6 @@
  overflow: visible;
  }
  
- /* Настройки внутри панели */
  .settings-panel {
  display: flex;
  justify-content: space-around;
@@ -146,27 +145,26 @@
  }
  .flashcard {
  background-color: #f5f5f5;
- padding: 20px;
- border-radius: 15px;
- width: 340px;
- height: 400px;
+ padding: 15px;
+ border-radius: 20px;
+ width: 450px; 
+ height: 520px;
  display: flex;
  flex-direction: column;
  justify-content: center;
  align-items: center;
- box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+ box-shadow: 0 10px 25px rgba(0,0,0,0.6);
  }
  
- /* Стили для картинок */
  .flashcard-img {
- width: 220px;
- height: 220px;
- object-fit: contain; /* Картинка не искажается */
- margin-bottom: 20px;
+ width: 100%;
+ height: 80%; 
+ object-fit: contain; 
+ margin-bottom: 15px;
  }
  
  .flashcard-text {
- font-size: 40px;
+ font-size: 50px;
  font-weight: bold;
  color: #16213e;
  text-transform: uppercase;
@@ -195,15 +193,15 @@
  }
  .game-board {
  display: grid;
- grid-template-columns: repeat(auto-fit, 150px);
+ grid-template-columns: repeat(auto-fit, 160px);
  gap: 15px;
  justify-content: center; 
  max-width: 1000px;
  margin: 0 auto;
  }
  .card {
- width: 150px;
- height: 150px;
+ width: 160px;
+ height: 160px;
  perspective: 1000px;
  cursor: pointer;
  }
@@ -215,6 +213,7 @@
  transform-style: preserve-3d;
  }
  .card.flipped .card-inner { transform: rotateY(180deg); }
+ 
  .card-front, .card-back {
  width: 100%;
  height: 100%;
@@ -225,29 +224,36 @@
  align-items: center;
  justify-content: center;
  font-weight: bold;
- box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+ box-sizing: border-box; /* Чтобы рамки не меняли размер */
  }
+ 
+ /* ЯРКАЯ РАМКА ДЛЯ РУБАШКИ */
  .card-front {
  background-color: #533483;
  color: white;
- font-size: 40px;
+ font-size: 45px;
  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+ border: 4px solid #e94560; /* Оранжево-красная рамка */
+ box-shadow: 0 6px 12px rgba(0,0,0,0.6), inset 0 0 15px rgba(0,0,0,0.4); /* Внешняя и внутренняя тень */
  }
+ 
+ /* РАМКА ДЛЯ ЛИЦЕВОЙ СТОРОНЫ */
  .card-back {
  background-color: white;
  color: #16213e;
  transform: rotateY(180deg);
- font-size: 20px;
+ font-size: 22px;
  flex-direction: column;
  text-transform: uppercase;
  padding: 10px;
- box-sizing: border-box;
+ overflow: hidden; 
+ border: 4px solid #e94560; /* Такая же рамка для лица */
  }
  
  .card-img-game {
- width: 110px;
- height: 110px;
- object-fit: contain;
+ width: 100%;
+ height: 100%;
+ object-fit: contain; 
  }
  
  .win-message {
@@ -280,7 +286,7 @@
  }
  .listen-board {
  display: grid;
- grid-template-columns: repeat(auto-fit, 200px);
+ grid-template-columns: repeat(auto-fit, 220px);
  gap: 20px;
  justify-content: center;
  max-width: 1000px;
@@ -289,12 +295,14 @@
  .listen-card {
  background-color: white;
  border-radius: 15px;
- height: 220px;
+ height: 260px;
  display: flex;
  flex-direction: column;
  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
  overflow: hidden;
  position: relative;
+ border: 4px solid #533483; /* Рамка для красоты */
+ box-sizing: border-box;
  }
  .listen-letter {
  position: absolute;
@@ -302,9 +310,9 @@
  left: 10px;
  background-color: #16213e;
  color: white;
- font-size: 28px;
+ font-size: 32px;
  font-weight: bold;
- padding: 4px 14px;
+ padding: 4px 16px;
  border-radius: 8px;
  z-index: 10;
  }
@@ -314,20 +322,23 @@
  flex-direction: column;
  justify-content: center;
  align-items: center;
- padding: 30px 10px 10px 10px;
+ padding: 10px; 
+ height: 100%;
+ box-sizing: border-box;
  }
  
  .listen-img {
- width: 100px;
- height: 100px;
- object-fit: contain;
+ width: 100%;
+ height: 100%;
+ object-fit: contain; 
  }
  
  .listen-text {
  font-size: 24px;
  font-weight: bold;
  color: #16213e;
- margin-top: 10px;
+ margin-top: 5px;
+ margin-bottom: 5px;
  text-transform: uppercase;
  }
  .shuffle-btn {
@@ -354,8 +365,8 @@
  background-color: #16213e;
  border-radius: 15px;
  width: 100%;
- max-width: 600px;
- height: 450px;
+ max-width: 650px;
+ height: 500px;
  display: flex;
  flex-direction: column;
  justify-content: center;
@@ -367,9 +378,10 @@
  }
  
  .faster-img {
- width: 200px;
- height: 200px;
+ width: 300px;
+ height: 300px;
  object-fit: contain;
+ border-radius: 15px;
  }
  
  .faster-controls button {
@@ -391,7 +403,6 @@
 </head>
 <body>
 
- <!-- HOVER SETTINGS PANEL -->
  <div class="hover-menu" id="settingsMenu">
  <div class="hover-trigger" onclick="toggleMenu()">Tap / Hover for settings ⬇</div>
  <div class="hover-content" onclick="event.stopPropagation()">
@@ -433,7 +444,6 @@
  </div>
  </div>
 
- <!-- TABS -->
  <div class="tabs">
  <button class="tab-btn active" onclick="switchTab(1)">Tab 1: Learn</button>
  <button class="tab-btn" onclick="switchTab(2)">Tab 2: Pairs</button>
@@ -441,7 +451,6 @@
  <button class="tab-btn" onclick="switchTab(4)">Tab 4: Who is faster?</button>
  </div>
 
- <!-- TAB 1 -->
  <div id="tab1-content">
  <div class="flashcard" id="flashcard">
  <img id="fc-img" class="flashcard-img" src="" alt="">
@@ -453,20 +462,17 @@
  </div>
  </div>
 
- <!-- TAB 2 -->
  <div id="tab2-content">
  <div class="game-board" id="game-board"></div>
  <div class="win-message" id="win-message"> Great job! You found all the pairs! </div>
  <button class="restart-btn" id="restart-btn" onclick="startGame()">Play Again</button>
  </div>
 
- <!-- TAB 3 -->
  <div id="tab3-content">
  <div class="listen-board" id="listen-board"></div>
  <button class="shuffle-btn" onclick="initListenBoard()">Shuffle</button>
  </div>
 
- <!-- TAB 4 -->
  <div id="tab4-content">
  <div class="faster-display" id="faster-display">
  <h1 style="color: #bdc3c7;">Press Start</h1>
@@ -478,7 +484,6 @@
  </div>
 
  <script>
- // --- МЕНЮ (КЛИКИ / ТАПЫ) ---
  function toggleMenu() {
  document.getElementById('settingsMenu').classList.toggle('open');
  }
@@ -489,7 +494,6 @@
  }
  });
 
- // HALLOWEEN DATABASE (ССЫЛКИ НА ТВОИ КАРТИНКИ)
  const allColors = [
  { name: "PUMPKIN", img: "pumpkin.png" },
  { name: "COFFIN", img: "coffin.png" },
@@ -600,7 +604,6 @@
  return tempArray;
  }
 
- // --- TAB 1 ---
  function updateFlashcard() {
  if(selectedColors.length === 0) return;
  const currentColor = selectedColors[fcIndex];
@@ -621,7 +624,6 @@
  updateFlashcard();
  }
 
- // --- TAB 2 (PAIRS) ---
  function startGame() {
  const board = document.getElementById('game-board');
  board.innerHTML = '';
@@ -723,7 +725,6 @@
  [firstCard, secondCard] = [null, null];
  }
 
- // --- TAB 3 (LISTEN & CHOOSE) ---
  function initListenBoard() {
  const board = document.getElementById('listen-board');
  board.innerHTML = '';
@@ -767,7 +768,6 @@
  });
  }
 
- // --- TAB 4 (WHO IS FASTER) ---
  async function sleep(ms) {
  const start = Date.now();
  while (Date.now() - start < ms) {
